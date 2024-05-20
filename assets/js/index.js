@@ -1,4 +1,6 @@
+let UserForm = localStorage.getItem('userForm')
 
+if(!UserForm){
 (async () => {
 const { value: formValues } = await Swal.fire({
     title: "Multiple inputs",
@@ -16,12 +18,23 @@ const { value: formValues } = await Swal.fire({
   });
   if (formValues[0] == '' && formValues[1] == '') {
    console.error('no se permiten usuarios empty')
-   alert('ten')
+   Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Ingrese su usuario y contraseña por favor",
+    footer: '<a href="http://127.0.0.1:5500/index.html">Intente otra vez</a>'
+    });
     // Swal.fire(JSON.stringify(formValues));
   } else{
-    localStorage.setItem('usuarioRegistrado', JSON.stringify(formValues))
-    let datos = localStorage.getItem('usuarioRegistrado')
-    alert(datos[0],' Datos ingresados correctamente ')
+    localStorage.setItem('userForm', JSON.stringify(formValues))
+    location.reload();
   }
 
 }) ()
+}
+
+let spanUser = document.getElementById('nombre')
+let nombreUs = JSON.parse(UserForm)
+
+spanUser.textContent = nombreUs[0]
+
