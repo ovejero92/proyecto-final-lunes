@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let usuario1 = {
+        firstName: "Lorena",
+        lastName:"Parra",
+        edad:17
+    };
+    let usuarios = [];
+    
+    usuario1.ciudad = 'Bs As'
+    usuario1.edad = 16
+
+    console.log(usuario1)
+
+    setTimeout(function(){})
+
+    setTimeout(()=>{
+        usuario1['edad'] += 1
+        console.log(usuario1)
+    },3000)
+
+    usuarios.push(usuario1)
+
+    console.log(usuarios)
+
+    
+    
+    </script>
+</body>
+</html>
