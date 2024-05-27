@@ -3,7 +3,7 @@ let UserForm = localStorage.getItem('userForm')
 if(!UserForm){
 (async () => {
 const { value: formValues } = await Swal.fire({
-    title: "Multiple inputs",
+    title: "Login",
     html: `
       <input id="swal-input1" class="swal2-input" type="text" placeholder="Ingrese su nombre" >
       <input id="swal-input2" class="swal2-input" type="password" placeholder="Ingrese su contraseña">
@@ -26,12 +26,27 @@ const { value: formValues } = await Swal.fire({
     });
     // Swal.fire(JSON.stringify(formValues));
   } else{
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Logiado correctamente",
+      showConfirmButton: false,
+      timer: 1500
+    });
     localStorage.setItem('userForm', JSON.stringify(formValues))
+
     location.reload();
   }
 
 }) ()
 }
+
+function cerrarSession() {
+  localStorage.removeItem('userForm')
+
+  location.reload()
+}
+
 
 let spanUser = document.getElementById('nombre')
 let nombreUs = JSON.parse(UserForm)
