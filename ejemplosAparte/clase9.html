@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./evento.css">
+</head>
+<body data-dark>
+    
+    <!-- FOCUS & BLUR -->
+    <form action="" >
+        <label for="email">Ingrese su email:</label>
+        <input type="email" name="email" id="email">
+        <br> <br>
+        <label for="clave">Ingrese su contraseña:</label>
+        <input type="password" name="clave" id="clave" onfocus="foco(this)">
+        <input type="submit" type="button" value="Send">
+    </form>
+    <!-- Keyup -->
+    <h2>Escribe algo</h2>
+    <input type="text" id="text" placeholder="Escibe algo aqui...">
+    <span id="mostrar-texto">Input Vacio</span>
+    <!-- EventoMause-->
+    <div class="caja" onmouseenter="eventoME()">Evento mouse</div>
+    <div class="caja" onmouseleave="eventoLE()">Evento mouse</div>
+    <div class="caja" onmouseout="eventoMV()">Evento mouse</div>
+    <div class="caja" onmouseup="eventoUP()">Evento mouse</div>
+
+    <button class="scroll-top-btn hidden">&#11014;</button>
+     
+    <!--DarkMode-->
+    <button class="dark-theme-btn" id="luna">🌙</button>
+    
+    <!-- load -->
+    <h3>Primer titulo</h3>
+    <button id="miBtn">haz click aqui</button>
+   
+    <input type="text"  id="in" >
+    <p id="mensaje"></p>
+
+    <script>
+    let p = document.getElementById('mensaje')
+    let btn = document.getElementById('miBtn') 
+    let input = document.getElementById('in')
+    
+    btn.addEventListener('click', (e)  => {
+        p.innerText = 'Hola desde el evento'
+    })
+
+    btn.addEventListener('dblclick',()=> {
+        alert('hola desde el doble click')
+    })
+
+    input.addEventListener('focus',(e)=> {
+        e.target.style.background = 'red'
+        console.log(e)
+    })
+
+    function foco(e){
+        e.target.style.background = 'red'
+    }
+
+    // function msj(){
+    //     p.textContent = 'El boton ha sido clickeado'
+    // }
+
+    </script>
+
+    <script src="./evento.js"></script>
+</body>
+</html>

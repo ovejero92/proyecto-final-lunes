@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Información de Usuario</h1>
+    <button id="cargarUsuario">Cargar Usuario</button>
+    <p id="usuarioInfo"></p>
+
+    <script>
+        // Función que simula una llamada a una API
+function obtenerUsuario() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const exito = false; // Cambia a false para probar el rechazo de la promesa
+
+            if (exito) {
+                const usuario = {
+                    nombre: 'Juan Pérez',
+                    edad: 30,
+                    email: 'juan.perez@example.com'
+                };
+                resolve(usuario);
+            } else {
+                reject('Error al obtener los datos del usuario');
+            }
+        }, 2000);
+    });
+}
+
+// Seleccionamos el botón y el párrafo
+const boton = document.getElementById('cargarUsuario');
+const usuarioInfo = document.getElementById('usuarioInfo');
+
+// Añadimos un 'event listener' al botón para que ejecute una función cuando se haga clic
+boton.addEventListener('click', () => {
+    usuarioInfo.textContent = 'Cargando...';
+
+    obtenerUsuario()
+        .then((usuario) => {
+            usuarioInfo.textContent = `Nombre: ${usuario.nombre} \nEdad: ${usuario.edad} \nEmail: ${usuario.email}`;
+        })
+        .catch((error) => {
+            usuarioInfo.textContent = error;
+        });
+});
+
+    </script>
+</body>
+</html>

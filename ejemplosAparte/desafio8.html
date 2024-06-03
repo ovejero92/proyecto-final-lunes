@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    const productos = ["prod1","prod2","prod3","prod4","prod5"]
+
+
+    for(let prod of productos){
+    let h2 = document.createElement('h2');
+    h2.innerHTML = `<p>Nombre: <span style="color: red"> ${prod}</span> </p>`
+    // h2.innerHTML = "<p>Nombre: <span style='color: red'>"+prod+"</span> </p>"
+    document.body.appendChild(h2)
+    }
+    console.dir(document)
+
+    </script>
+</body>
+</html>
